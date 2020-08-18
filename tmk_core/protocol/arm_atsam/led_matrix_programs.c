@@ -64,9 +64,14 @@ led_setup_t leds_white[] = {
 };
 
 // Purple
-// White
 led_setup_t leds_purple[] = {
     {.hs = 0, .he = 100, .rs = 255, .re = 255, .gs = 15, .ge = 15, .bs = 255, .be = 255, .ef = EF_NONE},
+    {.end = 1},
+};
+
+// Green Teal
+led_setup_t leds_green_teal[] = {
+    {.hs = 0, .he = 100, .rs = 0, .re = 0, .gs = 255, .ge = 255, .bs = 127, .be = 127, .ef = EF_NONE},
     {.end = 1},
 };
 
@@ -95,6 +100,14 @@ led_setup_t leds_rainbow_s[] = {
     {.hs = 0, .he = 16.67, .rs = 255, .re = 255, .gs = 0, .ge = 255, .bs = 0, .be = 0, .ef = EF_OVER | EF_SCR_R}, {.hs = 16.67, .he = 33.33, .rs = 255, .re = 0, .gs = 255, .ge = 255, .bs = 0, .be = 0, .ef = EF_OVER | EF_SCR_R}, {.hs = 33.33, .he = 50, .rs = 0, .re = 0, .gs = 255, .ge = 255, .bs = 0, .be = 255, .ef = EF_OVER | EF_SCR_R}, {.hs = 50, .he = 66.67, .rs = 0, .re = 0, .gs = 255, .ge = 0, .bs = 255, .be = 255, .ef = EF_OVER | EF_SCR_R}, {.hs = 66.67, .he = 83.33, .rs = 0, .re = 255, .gs = 0, .ge = 0, .bs = 255, .be = 255, .ef = EF_OVER | EF_SCR_R}, {.hs = 83.33, .he = 100, .rs = 255, .re = 255, .gs = 0, .ge = 0, .bs = 255, .be = 0, .ef = EF_OVER | EF_SCR_R}, {.end = 1},
 };
 
+// Purple <-> Green Teal
+led_setup_t leds_purple_green_teal[] = {
+    {.hs = 0, .he = 33, .rs = 255, .re = 255, .gs = 15, .ge = 15, .bs = 255, .be = 255, .ef = EF_NONE},
+    {.hs = 33, .he = 66, .rs = 255, .re = 150, .gs = 0, .ge = 0, .bs = 0, .be = 0, .ef = EF_NONE},
+    {.hs = 66, .he = 100, .rs = 0, .re = 0, .gs = 255, .ge = 255, .bs = 127, .be = 127, .ef = EF_NONE},
+    {.end = 1},
+};
+
 // Add new LED animations here using one from above as example
 // The last entry must be { .end = 1 }
 // Add the new animation name to the list below following its format
@@ -103,14 +116,17 @@ void *led_setups[] = {
     leds_rainbow_s,
     leds_rainbow_ns,
     leds_teal_salmon,
+    leds_purple_green_teal,
     leds_yellow,
     leds_red,
     leds_green,
     leds_blue,
     leds_purple,
+    leds_green_teal,
     leds_white,
     leds_white_with_red_stripe,
-    leds_black_with_red_stripe, leds_off
+    leds_black_with_red_stripe,
+    leds_off
 };
 
 const uint8_t led_setups_count = sizeof(led_setups) / sizeof(led_setups[0]);
